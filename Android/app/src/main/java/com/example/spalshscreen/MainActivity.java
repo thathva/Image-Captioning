@@ -3,13 +3,19 @@ package com.example.spalshscreen;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.speech.tts.TextToSpeech;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
     private static int SPLASH_SCREEN_TIME_OUT=2000;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

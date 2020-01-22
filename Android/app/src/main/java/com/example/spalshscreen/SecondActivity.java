@@ -9,15 +9,34 @@ import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.speech.tts.TextToSpeech;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
+import java.util.Locale;
 
 public class SecondActivity extends AppCompatActivity {
+
+    TextToSpeech t1;
+    @Override
+    protected void onStart() {
+        super.onStart();
+        t1 = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if (status != TextToSpeech.ERROR) {
+                    t1.setLanguage(Locale.UK);
+                    String toSpeak = "Welcome. To capture an image tap the screen. To replay the audio tap twice.";
+                    t1.speak(toSpeak, TextToSpeech.QUEUE_ADD, null);
+                }
+            }
+        });
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
