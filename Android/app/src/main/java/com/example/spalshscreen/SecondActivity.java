@@ -60,7 +60,7 @@ public class SecondActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode==100 && resultCode== Activity.RESULT_OK)
+        if(requestCode==1001 && resultCode== Activity.RESULT_OK)
         {
             Bitmap mBitmap = (Bitmap) data.getExtras().get("data");
 
@@ -131,7 +131,10 @@ public class SecondActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String string) {
             //  if (imageView != null && bitmap != null) {
-            Log.i("prr",string);
+            Log.d("prr",string);
+            Intent i=new Intent(SecondActivity.this,ThirdActivity.class);
+            i.putExtra("Image",string);
+            startActivity(i);
            // ed.setText(string);
 
         }
