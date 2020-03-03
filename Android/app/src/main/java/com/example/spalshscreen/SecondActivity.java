@@ -170,12 +170,12 @@ public class SecondActivity extends AppCompatActivity {
             String image_str = Base64.encodeToString(byte_arr, Base64.DEFAULT);
             Log.i("tag", image_str);
             // ed.setText(image_str);
-            String URL ="http://34.236.134.78/";
+            String URL ="http://35.172.150.235/";
 
             OkHttpClient client = new OkHttpClient.Builder()
-                    .connectTimeout(45, TimeUnit.SECONDS)
-                    .writeTimeout(45, TimeUnit.SECONDS)
-                    .readTimeout(45, TimeUnit.SECONDS)
+                    .connectTimeout(120, TimeUnit.SECONDS)
+                    .writeTimeout(120, TimeUnit.SECONDS)
+                    .readTimeout(120, TimeUnit.SECONDS)
                     .build();
 
 
@@ -207,6 +207,7 @@ public class SecondActivity extends AppCompatActivity {
                 Log.i("string",data);
                 Intent i=new Intent(SecondActivity.this,ThirdActivity.class);
                 i.putExtra("Image",data);
+                i.putExtra("ImageString",image_str);
                 startActivity(i);
             } catch (Exception e) {
                 e.printStackTrace();
